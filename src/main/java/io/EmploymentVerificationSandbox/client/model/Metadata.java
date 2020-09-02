@@ -1,16 +1,10 @@
 package io.EmploymentVerificationSandbox.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import io.EmploymentVerificationSandbox.client.model.Links;
-import java.io.IOException;
+
 @ApiModel(description = "Pagination information.")
 
 
@@ -18,46 +12,54 @@ import java.io.IOException;
 public class Metadata {
   @SerializedName("page")
   private Integer page = null;
+
   @SerializedName("perPage")
   private Integer perPage = null;
+
   @SerializedName("pageCount")
   private Integer pageCount = null;
+
   @SerializedName("totalCount")
   private Integer totalCount = null;
+
   @SerializedName("links")
   private Links links = null;
-   
+
   @ApiModelProperty(example = "7", value = "Current page.")
   public Integer getPage() {
     return page;
   }
-   
+
   @ApiModelProperty(example = "15", value = "Rows per page.")
   public Integer getPerPage() {
     return perPage;
   }
-   
+
   @ApiModelProperty(example = "12", value = "Total number of pages.")
   public Integer getPageCount() {
     return pageCount;
   }
-   
+
   @ApiModelProperty(example = "175", value = "Total number of rows.")
   public Integer getTotalCount() {
     return totalCount;
   }
+
   public Metadata links(Links links) {
     this.links = links;
     return this;
   }
-   
+
   @ApiModelProperty(value = "")
   public Links getLinks() {
     return links;
   }
+
   public void setLinks(Links links) {
     this.links = links;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -73,10 +75,13 @@ public class Metadata {
         Objects.equals(this.totalCount, metadata.totalCount) &&
         Objects.equals(this.links, metadata.links);
   }
+
   @Override
   public int hashCode() {
     return Objects.hash(page, perPage, pageCount, totalCount, links);
   }
+
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -90,11 +95,13 @@ public class Metadata {
     sb.append("}");
     return sb.toString();
   }
-  
+
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

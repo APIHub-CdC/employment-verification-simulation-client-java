@@ -1,7 +1,6 @@
 package io.EmploymentVerificationSandbox.client.model;
 
 import java.util.Objects;
-
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -11,6 +10,7 @@ import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.EmploymentVerificationSandbox.client.model.EmploymentVerificationId;
 import java.io.IOException;
+
 @ApiModel(description = "Employment verification information")
 
 
@@ -18,11 +18,14 @@ import java.io.IOException;
 public class EmploymentVerification extends EmploymentVerificationId {
   @SerializedName("curp")
   private String curp = null;
+
   @SerializedName("nss")
   private String nss = null;
+
   @SerializedName("email")
   private String email = null;
-  
+
+ 
   @JsonAdapter(InquiryStatusEnum.Adapter.class)
   public enum InquiryStatusEnum {
     RI("RI"),
@@ -33,20 +36,23 @@ public class EmploymentVerification extends EmploymentVerificationId {
     
     DND("DND"),
     
-    NDN("NDN"),
     CI("CI");
 
     private String value;
+
     InquiryStatusEnum(String value) {
       this.value = value;
     }
+
     public String getValue() {
       return value;
     }
+
     @Override
     public String toString() {
       return String.valueOf(value);
     }
+
     public static InquiryStatusEnum fromValue(String text) {
       for (InquiryStatusEnum b : InquiryStatusEnum.values()) {
         if (String.valueOf(b.value).equals(text)) {
@@ -55,11 +61,13 @@ public class EmploymentVerification extends EmploymentVerificationId {
       }
       return null;
     }
+
     public static class Adapter extends TypeAdapter<InquiryStatusEnum> {
       @Override
       public void write(final JsonWriter jsonWriter, final InquiryStatusEnum enumeration) throws IOException {
         jsonWriter.value(enumeration.getValue());
       }
+
       @Override
       public InquiryStatusEnum read(final JsonReader jsonReader) throws IOException {
         String value = jsonReader.nextString();
@@ -67,56 +75,69 @@ public class EmploymentVerification extends EmploymentVerificationId {
       }
     }
   }
+
   @SerializedName("inquiryStatus")
   private InquiryStatusEnum inquiryStatus = null;
+
   @SerializedName("successCheck")
   private Boolean successCheck = null;
+
   public EmploymentVerification curp(String curp) {
     this.curp = curp;
     return this;
   }
-   
+
   @ApiModelProperty(example = "BADD110313HCMLNS09", value = "Clave Única de Registro de población for its initials in Spanish (CURP)")
   public String getCurp() {
     return curp;
   }
+
   public void setCurp(String curp) {
     this.curp = curp;
   }
+
   public EmploymentVerification nss(String nss) {
     this.nss = nss;
     return this;
   }
-   
+
+
   @ApiModelProperty(example = "92919084431", value = "Número de Seguridad Social for its initials in Spanish (NSS)")
   public String getNss() {
     return nss;
   }
+
   public void setNss(String nss) {
     this.nss = nss;
   }
+
   public EmploymentVerification email(String email) {
     this.email = email;
     return this;
   }
-   
+
   @ApiModelProperty(example = "api@circulodecredito.com.mx", value = "email")
   public String getEmail() {
     return email;
   }
+
   public void setEmail(String email) {
     this.email = email;
   }
-   
-  @ApiModelProperty(example = "delivered", value = "Inquiry status.")
+
+
+  @ApiModelProperty(example = "DN", value = "Inquiry status.")
   public InquiryStatusEnum getInquiryStatus() {
     return inquiryStatus;
   }
-   
+
+
   @ApiModelProperty(example = "true", value = "It is true if the employment verification process ended successfully.")
   public Boolean isSuccessCheck() {
     return successCheck;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -133,10 +154,13 @@ public class EmploymentVerification extends EmploymentVerificationId {
         Objects.equals(this.successCheck, employmentVerification.successCheck) &&
         super.equals(o);
   }
+
   @Override
   public int hashCode() {
     return Objects.hash(curp, nss, email, inquiryStatus, successCheck, super.hashCode());
   }
+
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -150,11 +174,13 @@ public class EmploymentVerification extends EmploymentVerificationId {
     sb.append("}");
     return sb.toString();
   }
-  
+
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

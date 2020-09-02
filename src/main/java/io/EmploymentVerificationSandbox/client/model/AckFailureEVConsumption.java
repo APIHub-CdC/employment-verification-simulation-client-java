@@ -1,19 +1,12 @@
+
 package io.EmploymentVerificationSandbox.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import io.EmploymentVerificationSandbox.client.model.AckEmploymentVerification;
-import io.EmploymentVerificationSandbox.client.model.FailureEVConsumption;
-import java.io.IOException;
-import java.util.UUID;
-import org.threeten.bp.OffsetDateTime;
+
 @ApiModel(description = "Acknowledge of an unsuccessful employment verification process.")
 
 
@@ -21,18 +14,22 @@ import org.threeten.bp.OffsetDateTime;
 public class AckFailureEVConsumption extends AckEmploymentVerification {
   @SerializedName("employmentVerification")
   private FailureEVConsumption employmentVerification = null;
+
   public AckFailureEVConsumption employmentVerification(FailureEVConsumption employmentVerification) {
     this.employmentVerification = employmentVerification;
     return this;
   }
-   
+
   @ApiModelProperty(value = "")
   public FailureEVConsumption getEmploymentVerification() {
     return employmentVerification;
   }
+
   public void setEmploymentVerification(FailureEVConsumption employmentVerification) {
     this.employmentVerification = employmentVerification;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -45,10 +42,13 @@ public class AckFailureEVConsumption extends AckEmploymentVerification {
     return Objects.equals(this.employmentVerification, ackFailureEVConsumption.employmentVerification) &&
         super.equals(o);
   }
+
   @Override
   public int hashCode() {
     return Objects.hash(employmentVerification, super.hashCode());
   }
+
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -58,11 +58,13 @@ public class AckFailureEVConsumption extends AckEmploymentVerification {
     sb.append("}");
     return sb.toString();
   }
-  
+
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+

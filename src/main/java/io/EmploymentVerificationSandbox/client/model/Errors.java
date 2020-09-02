@@ -7,39 +7,19 @@ import io.swagger.annotations.ApiModelProperty;
 import java.util.ArrayList;
 import java.util.List;
 
-
-@ApiModel(description = "Information about a failed employment verification process.")
-
+@ApiModel(description = "A list of errors.")
 
 
-public class FailureEVConsumption {
-  @SerializedName("request")
-  private EmploymentVerification request = null;
-
+public class Errors {
   @SerializedName("errors")
   private List<Error> errors = null;
 
-  public FailureEVConsumption request(EmploymentVerification request) {
-    this.request = request;
-    return this;
-  }
-
- 
-  @ApiModelProperty(value = "")
-  public EmploymentVerification getRequest() {
-    return request;
-  }
-
-  public void setRequest(EmploymentVerification request) {
-    this.request = request;
-  }
-
-  public FailureEVConsumption errors(List<Error> errors) {
+  public Errors errors(List<Error> errors) {
     this.errors = errors;
     return this;
   }
 
-  public FailureEVConsumption addErrorsItem(Error errorsItem) {
+  public Errors addErrorsItem(Error errorsItem) {
     if (this.errors == null) {
       this.errors = new ArrayList<Error>();
     }
@@ -65,23 +45,21 @@ public class FailureEVConsumption {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    FailureEVConsumption failureEVConsumption = (FailureEVConsumption) o;
-    return Objects.equals(this.request, failureEVConsumption.request) &&
-        Objects.equals(this.errors, failureEVConsumption.errors);
+    Errors errors = (Errors) o;
+    return Objects.equals(this.errors, errors.errors);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(request, errors);
+    return Objects.hash(errors);
   }
 
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class FailureEVConsumption {\n");
+    sb.append("class Errors {\n");
     
-    sb.append("    request: ").append(toIndentedString(request)).append("\n");
     sb.append("    errors: ").append(toIndentedString(errors)).append("\n");
     sb.append("}");
     return sb.toString();
