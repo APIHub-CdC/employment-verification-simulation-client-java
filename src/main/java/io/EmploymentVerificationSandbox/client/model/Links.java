@@ -1,15 +1,10 @@
 package io.EmploymentVerificationSandbox.client.model;
 
 import java.util.Objects;
-import java.util.Arrays;
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.IOException;
+
 @ApiModel(description = "Pagination information.")
 
 
@@ -17,39 +12,45 @@ import java.io.IOException;
 public class Links {
   @SerializedName("self")
   private String self = null;
+
   @SerializedName("first")
   private String first = null;
+
   @SerializedName("previous")
   private String previous = null;
+
   @SerializedName("next")
   private String next = null;
+
   @SerializedName("last")
   private String last = null;
-   
+
   @ApiModelProperty(example = "https://services.circulodecredito.com.mx/tp/cl/v1/employmentverifications?page=7&perPage=15", value = "URL of this page.")
   public String getSelf() {
     return self;
   }
-   
+
   @ApiModelProperty(example = "https://services.circulodecredito.com.mx/tp/cl/v1/employmentverifications?page=1&perPage=15", value = "URL of the first page.")
   public String getFirst() {
     return first;
   }
-   
+
   @ApiModelProperty(example = "https://services.circulodecredito.com.mx/tp/cl/v1/employmentverifications?page=6&perPage=15", value = "URL of the previous page.")
   public String getPrevious() {
     return previous;
   }
-   
+
   @ApiModelProperty(example = "https://services.circulodecredito.com.mx/tp/cl/v1/employmentverifications?page=8&perPage=15", value = "URL of the next page.")
   public String getNext() {
     return next;
   }
-   
+
   @ApiModelProperty(example = "https://services.circulodecredito.com.mx/tp/cl/v1/employmentverifications?page=12&perPage=15", value = "URL of the last page.")
   public String getLast() {
     return last;
   }
+
+
   @Override
   public boolean equals(java.lang.Object o) {
     if (this == o) {
@@ -65,10 +66,13 @@ public class Links {
         Objects.equals(this.next, links.next) &&
         Objects.equals(this.last, links.last);
   }
+
   @Override
   public int hashCode() {
     return Objects.hash(self, first, previous, next, last);
   }
+
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -82,11 +86,13 @@ public class Links {
     sb.append("}");
     return sb.toString();
   }
-  
+
   private String toIndentedString(java.lang.Object o) {
     if (o == null) {
       return "null";
     }
     return o.toString().replace("\n", "\n    ");
   }
+
 }
+
