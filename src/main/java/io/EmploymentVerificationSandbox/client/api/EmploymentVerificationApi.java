@@ -1,5 +1,16 @@
 package io.EmploymentVerificationSandbox.client.api;
 
+import java.io.IOException;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.reflect.TypeToken;
+
+import org.threeten.bp.OffsetDateTime;
+
 import io.EmploymentVerificationSandbox.client.ApiCallback;
 import io.EmploymentVerificationSandbox.client.ApiClient;
 import io.EmploymentVerificationSandbox.client.ApiException;
@@ -8,24 +19,10 @@ import io.EmploymentVerificationSandbox.client.Configuration;
 import io.EmploymentVerificationSandbox.client.Pair;
 import io.EmploymentVerificationSandbox.client.ProgressRequestBody;
 import io.EmploymentVerificationSandbox.client.ProgressResponseBody;
-
-import com.google.gson.reflect.TypeToken;
-
-import java.io.IOException;
-
 import io.EmploymentVerificationSandbox.client.model.AckEVRequest;
-import io.EmploymentVerificationSandbox.client.model.AckFailureEVConsumption;
 import io.EmploymentVerificationSandbox.client.model.AckSuccessEVConsumption;
-import io.EmploymentVerificationSandbox.client.model.AgregationErrors;
 import io.EmploymentVerificationSandbox.client.model.EmploymentVerification;
 import io.EmploymentVerificationSandbox.client.model.EmploymentVerificationMetadata;
-import org.threeten.bp.OffsetDateTime;
-
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class EmploymentVerificationApi {
     private ApiClient apiClient;
