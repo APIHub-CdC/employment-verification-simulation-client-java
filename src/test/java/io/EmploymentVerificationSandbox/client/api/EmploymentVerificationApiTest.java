@@ -43,6 +43,7 @@ public class EmploymentVerificationApiTest {
     @Test
     public void postEmploymentVerificationTest() throws ApiException, InterruptedException {
 
+        logger.info("POST");
         EmploymentVerification request = new EmploymentVerification();
 
         request.setCurp(null);
@@ -77,26 +78,20 @@ public class EmploymentVerificationApiTest {
         }
     }
 
-    private void sendGetbyId() throws InterruptedException {
-        Thread.sleep(1000);
+    private void sendGetbyId() throws InterruptedException {        
         AckSuccessEVConsumption responseGet;
         try {
 
-            logger.info("tried " + (count + 1));
+            logger.info("GET BY ID" );
             responseGet = api.getEmploymentVerification(this.xApiKey, this.inquiryId.toString());
             logger.info(responseGet.toString());
-        } catch (ApiException ae) {
-            if (this.count < 1) {
-                this.count++;
-                this.sendGetbyId();
+       
+        } catch (ApiException ae) {   
+            logger.error(Integer.toString(ae.getCode()));
+            if (ae.getResponseBody() == null) {
+                logger.error(ae.getMessage());
             } else {
-                logger.error(Integer.toString(ae.getCode()));
-
-                if (ae.getResponseBody() == null) {
-                    logger.error(ae.getMessage());
-                } else {
-                    logger.error(ae.getResponseBody());
-                }
+                logger.error(ae.getResponseBody());
             }
         }
 
