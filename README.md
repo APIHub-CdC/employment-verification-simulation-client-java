@@ -53,3 +53,6 @@ Having the previous steps, all that remains is to run the unit test, with the fo
 ```shell
 mvn test -Dmaven.install.skip=true
 ```
+
+---
+[TERMS AND CONDITIONS](https://github.com/APIHub-CdC/licencias-cdc)
